@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Youtube Transcript Summarizer</title>
+
+	<style type="text/css">
+
+		body {
+			margin: 0;
+			font-family: 'Helvetica', 'Arial', sans-serif;
+			text-align: center;
+			background-color: #FAD02C;
+		}
+
+		*{
+			box-sizing: border-box;
+		}
+		#hero{
+			width: 100%;
+			background-color: #333652;
+			color: white;
+			text-align: center;
+			padding-top: 0.5%;
+			padding-bottom: 0.5%;
+			margin: 0;
+			font-size: 120%;
+			display: block;
+		}
+
+		.summary{
+			padding-top: 2%;
+			font-size: 120%;
+			padding-bottom: 15%;
+			padding-left: 7%;
+			padding-right: 7%;
+			background-color: #E9EAEC;
+			width: 90%;
+			padding-bottom: 30px;
+			margin: auto;
+		}
+
+		#adding{
+			margin-top: 3%;
+		}
+
+		input{
+			font-size:120%;
+		}
+
+		.button {
+		  background-color: #333652;
+		  color: white;
+		  border: none;
+		  padding: 7px 16px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 120%;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		}
+
+		.button:hover{
+			background-color: #90ADC6;
+		}
+
+		@media(min-width: 992px){
+			.button {
+			  background-color: #333652;
+			  border: none;
+			  padding: 14px 30px;
+			  text-align: center;
+			  text-decoration: none;
+			  display: inline-block;
+			  font-size: 120%;
+			  margin: 4px 2px;
+			  cursor: pointer;
+			}
+
+			.button:hover{
+				background-color: #90ADC6;
+			}
+		}
+
+		a{
+			text-decoration: none;
+			color: white;
+		}
+
+		button:hover {
+			background-color: #189AB4;
+		}
+
+		.form{
+			align-items: center;
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+
+	<div class="content">
+		<div id="hero">
+			<h1>Youtube Transcript Summarizer</h1>
+		</div>
+
+		<div class="form" id="adding">
+			<form action="/" method="POST" style="margin:2%;">
+				<input type="text" name="content" id="content">
+				<br><br>
+				<input type="submit" value="Get Summary" class="button">
+			</form>
+
+			{% if summary|length < 1 %}
+				<h2 style="padding-top: 10px;">Enter url to get Summary</h2>
+			{% else %}
+					<div class="summary" align="center">
+						{{ summary }}
+					</div>
+			{% endif %}
+		</div>
+	</div>
+
+{% endblock %}
